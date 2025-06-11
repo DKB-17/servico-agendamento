@@ -117,6 +117,7 @@ export interface BarbeiroUpdateRequest {
   caminhoImagem?: string | null
   servicos: number[]
   horarios: number[]
+<<<<<<< HEAD
 }
 
 // Nova interface para o resumo de agendamentos por dia
@@ -125,4 +126,6 @@ export interface AgendamentosDiaResponse {
   agendasConfirmados: number
   agendasCancelados: number
   agendasConcluidos: number
+=======
+>>>>>>> 117a9383498c03862cd4c5feb5e7eddf85e333fd
 }

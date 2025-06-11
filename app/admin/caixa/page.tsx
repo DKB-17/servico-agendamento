@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+<<<<<<< HEAD
 import { ArrowLeft, DollarSign, TrendingUp, Calendar, Users, RefreshCw } from "lucide-react"
 import Link from "next/link"
 import { toast } from "sonner"
@@ -24,10 +25,22 @@ interface CaixaData {
   servicoMaisVendido: string
   ticketMedio: number
   taxaCancelamento: number
+=======
+import { ArrowLeft, DollarSign, TrendingUp, Calendar, Users } from "lucide-react"
+import Link from "next/link"
+import { toast } from "sonner"
+
+interface CaixaData {
+  totalFaturamento: number
+  totalAgendamentos: number
+  agendamentosHoje: number
+  servicoMaisVendido: string
+>>>>>>> 117a9383498c03862cd4c5feb5e7eddf85e333fd
 }
 
 export default function CaixaPage() {
   const [caixaData, setCaixaData] = useState<CaixaData | null>(null)
+<<<<<<< HEAD
   const [loading, setLoading] = useState(true)
   const [loadingFaturamento, setLoadingFaturamento] = useState(false)
 
@@ -115,14 +128,40 @@ export default function CaixaPage() {
         ...caixaData,
         faturamentoTotal: novoFaturamento,
       })
+=======
+
+  useEffect(() => {
+    fetchCaixaData()
+  }, [])
+
+  const fetchCaixaData = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/caixas")
+      const data = await response.json()
+
+      // Como a API retorna uma lista, vamos simular dados do caixa
+      // Em uma implementação real, a API deveria retornar dados consolidados
+      setCaixaData({
+        totalFaturamento: 2500.0,
+        totalAgendamentos: 45,
+        agendamentosHoje: 8,
+        servicoMaisVendido: "Corte + Barba",
+      })
+    } catch (error) {
+      toast.error("Erro ao carregar dados do caixa")
+>>>>>>> 117a9383498c03862cd4c5feb5e7eddf85e333fd
     }
   }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <div className="container mx-auto px-4 py-8">
+<<<<<<< HEAD
         <div className="flex justify-between items-center mb-6">
           <div>
+=======
+        <div className="mb-6">
+>>>>>>> 117a9383498c03862cd4c5feb5e7eddf85e333fd
           <Link href="/admin">
             <Button variant="ghost" className="text-white hover:text-amber-500">
               <ArrowLeft className="mr-2 h-4 w-4" />
@@ -136,6 +175,7 @@ export default function CaixaPage() {
           <p className="text-slate-300">Acompanhe o desempenho financeiro da barbearia</p>
         </div>
 
+<<<<<<< HEAD
         <div className="flex space-x-2">
             <Button
               onClick={atualizarFaturamento}
@@ -181,6 +221,18 @@ export default function CaixaPage() {
               <CardContent>
                 <div className="text-2xl font-bold text-white">{formatarMoeda(caixaData.faturamentoTotal)}</div>
                 
+=======
+        {caixaData && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <Card className="bg-slate-800 border-slate-700">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium text-slate-300">Faturamento Total</CardTitle>
+                <DollarSign className="h-4 w-4 text-amber-500" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold text-white">R$ {caixaData.totalFaturamento.toFixed(2)}</div>
+                <p className="text-xs text-slate-400">+20.1% em relação ao mês anterior</p>
+>>>>>>> 117a9383498c03862cd4c5feb5e7eddf85e333fd
               </CardContent>
             </Card>
 
@@ -217,6 +269,7 @@ export default function CaixaPage() {
               </CardContent>
             </Card>
           </div>
+<<<<<<< HEAD
 
         {/* Novo componente de agendamentos por dia */}
         <div className="mb-8">
@@ -229,10 +282,20 @@ export default function CaixaPage() {
             <CardHeader>
               <CardTitle className="text-white">Resumo Financeiro</CardTitle>
               <CardDescription className="text-slate-300">Métricas financeiras do período</CardDescription>
+=======
+        )}
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <Card className="bg-slate-800 border-slate-700">
+            <CardHeader>
+              <CardTitle className="text-white">Resumo Mensal</CardTitle>
+              <CardDescription className="text-slate-300">Desempenho do mês atual</CardDescription>
+>>>>>>> 117a9383498c03862cd4c5feb5e7eddf85e333fd
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex justify-between items-center">
                 <span className="text-slate-300">Receita Bruta</span>
+<<<<<<< HEAD
                   <span className="text-white font-semibold">{formatarMoeda(caixaData.faturamentoTotal)}</span>
               </div>
               <div className="flex justify-between items-center">
@@ -246,6 +309,21 @@ export default function CaixaPage() {
               <div className="flex justify-between items-center">
                 <span className="text-slate-300">Taxa de Cancelamento</span>
                 <span className="text-white font-semibold">{caixaData.taxaCancelamento}%</span>
+=======
+                <span className="text-white font-semibold">R$ 2.500,00</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-slate-300">Agendamentos Realizados</span>
+                <span className="text-white font-semibold">45</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-slate-300">Ticket Médio</span>
+                <span className="text-white font-semibold">R$ 55,56</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-slate-300">Taxa de Cancelamento</span>
+                <span className="text-white font-semibold">5%</span>
+>>>>>>> 117a9383498c03862cd4c5feb5e7eddf85e333fd
               </div>
             </CardContent>
           </Card>
@@ -291,6 +369,7 @@ export default function CaixaPage() {
             </CardContent>
           </Card>
         </div>
+<<<<<<< HEAD
         </>
         ) : (
           <div className="text-center py-12">
@@ -300,6 +379,8 @@ export default function CaixaPage() {
             </Button>
           </div>
         )}
+=======
+>>>>>>> 117a9383498c03862cd4c5feb5e7eddf85e333fd
       </div>
     </div>
   )

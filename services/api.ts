@@ -1,4 +1,5 @@
 import { API_CONFIG, DEFAULT_HEADERS } from "@/config/api"
+<<<<<<< HEAD
 import type {
    Barbeiro, 
    Servico, 
@@ -11,6 +12,9 @@ import type {
 
 import { format } from "date-fns"
 
+=======
+import type { Barbeiro, Servico, Horario, Agendamento, BarbeiroCreateRequest, BarbeiroUpdateRequest } from "@/types"
+>>>>>>> 117a9383498c03862cd4c5feb5e7eddf85e333fd
 // Classe base para serviços da API
 class BaseApiService {
   protected baseUrl = API_CONFIG.BASE_URL
@@ -167,6 +171,7 @@ export class AgendamentoService extends BaseApiService {
   }
 }
 
+<<<<<<< HEAD
 // Serviço para gerenciar dados do caixa
 export class CaixaService extends BaseApiService {
   async faturamentoTotal(): Promise<{ valor: number }> {
@@ -201,9 +206,14 @@ export class CaixaService extends BaseApiService {
   }
 }
 
+=======
+>>>>>>> 117a9383498c03862cd4c5feb5e7eddf85e333fd
 // Instâncias dos serviços para uso na aplicação
 export const barbeiroService = new BarbeiroService()
 export const servicoService = new ServicoService()
 export const horarioService = new HorarioService()
 export const agendamentoService = new AgendamentoService()
+<<<<<<< HEAD
 export const caixaService = new CaixaService()
+=======
+>>>>>>> 117a9383498c03862cd4c5feb5e7eddf85e333fd
