@@ -20,8 +20,6 @@ import {
 import { ArrowLeft, Plus, Edit, PowerOff } from "lucide-react"
 import Link from "next/link"
 import { toast } from "sonner"
-import { format } from "date-fns"
-import { ptBR } from "date-fns/locale"
 import { formatarDataCompleta } from "@/utils/formatters"
 import { servicoService } from "@/services/api"
 import { filterService } from "@/services/filterService"

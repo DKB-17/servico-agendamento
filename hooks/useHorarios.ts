@@ -78,8 +78,7 @@ export function useHorarios() {
   }
 
   // Filtrar apenas horários ativos
-  const horariosAtivos = horarios.filter((horario) => horario.ativo)
-
+  const horariosAtivos = horarios.filter((horario) => horario.deletedAt)
   useEffect(() => {
     carregarHorarios()
   }, [])

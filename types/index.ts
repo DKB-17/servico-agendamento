@@ -96,7 +96,7 @@ export interface BarbeiroForm {
 
 export interface ServicoForm {
   descricao: string
-  valor: string
+  valor: number
 }
 
 export interface HorarioForm {
@@ -117,7 +117,6 @@ export interface BarbeiroUpdateRequest {
   caminhoImagem?: string | null
   servicos: number[]
   horarios: number[]
-<<<<<<< HEAD
 }
 
 // Nova interface para o resumo de agendamentos por dia
@@ -126,6 +125,15 @@ export interface AgendamentosDiaResponse {
   agendasConfirmados: number
   agendasCancelados: number
   agendasConcluidos: number
-=======
->>>>>>> 117a9383498c03862cd4c5feb5e7eddf85e333fd
+}
+
+export interface ServicoMaisVendido {
+  descricaoDoServico: string
+  valorServico: number
+  porcentagemDeVendas: number
+  quantidadeDeVendas: number
+}
+
+export interface TicketMedio {
+  valor: number
 }

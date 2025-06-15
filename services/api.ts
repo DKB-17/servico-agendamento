@@ -1,5 +1,4 @@
 import { API_CONFIG, DEFAULT_HEADERS } from "@/config/api"
-<<<<<<< HEAD
 import type {
    Barbeiro, 
    Servico, 
@@ -8,13 +7,12 @@ import type {
    BarbeiroCreateRequest, 
    BarbeiroUpdateRequest,
    AgendamentosDiaResponse, 
+   AgendamentoResponse,
+   ServicoForm,
   } from "@/types"
 
 import { format } from "date-fns"
 
-=======
-import type { Barbeiro, Servico, Horario, Agendamento, BarbeiroCreateRequest, BarbeiroUpdateRequest } from "@/types"
->>>>>>> 117a9383498c03862cd4c5feb5e7eddf85e333fd
 // Classe base para serviços da API
 class BaseApiService {
   protected baseUrl = API_CONFIG.BASE_URL
@@ -80,7 +78,7 @@ export class ServicoService extends BaseApiService {
     return this.request<Servico>(`${API_CONFIG.ENDPOINTS.SERVICOS}/${id}`)
   }
   
-  async criar(data: Omit<Servico, "id" | "createdAt" | "updatedAt">): Promise<Servico> {
+  async criar(data: ServicoForm): Promise<Servico> {
     return this.request<Servico>(API_CONFIG.ENDPOINTS.SERVICOS, {
       method: "POST",
       body: JSON.stringify(data),
@@ -142,6 +140,13 @@ export class HorarioService extends BaseApiService {
       method: "PUT",
     })
   }
+
+
+  async horariosDisponiveis(date: Date, barbeiroId: number): Promise<Horario[]> {
+    const dataFormatada = format(date, "yyyy-MM-dd")
+    return this.request<Horario[]>(`${API_CONFIG.ENDPOINTS.HORARIOS}/disponiveis/${dataFormatada}/${barbeiroId}`)
+  }
+
 }
 
 // Serviço para gerenciar agendamentos
@@ -157,8 +162,8 @@ export class AgendamentoService extends BaseApiService {
     servicoId: number
     horarioId: number
     dia: string
-  }): Promise<Agendamento> {
-    return this.request<Agendamento>(API_CONFIG.ENDPOINTS.AGENDAS, {
+}, p0?: Date): Promise<AgendamentoResponse> {
+    return this.request<AgendamentoResponse>(API_CONFIG.ENDPOINTS.AGENDAS, {
       method: "POST",
       body: JSON.stringify(data),
     })
@@ -171,7 +176,6 @@ export class AgendamentoService extends BaseApiService {
   }
 }
 
-<<<<<<< HEAD
 // Serviço para gerenciar dados do caixa
 export class CaixaService extends BaseApiService {
   async faturamentoTotal(): Promise<{ valor: number }> {
@@ -204,16 +208,16 @@ export class CaixaService extends BaseApiService {
     const dataFormatada = format(data, "yyyy-MM-dd")
     return this.request<AgendamentosDiaResponse>(`${API_CONFIG.ENDPOINTS.CAIXAS}/agendamentos-dia/${dataFormatada}`)
   }
+
+  async proximosAgendamentosHoje(): Promise<AgendamentoResponse[]> {
+    return this.request<AgendamentoResponse[]>(`${API_CONFIG.ENDPOINTS.AGENDAS}/proximos-agendamentos-hoje`)
+  }
+
 }
 
-=======
->>>>>>> 117a9383498c03862cd4c5feb5e7eddf85e333fd
 // Instâncias dos serviços para uso na aplicação
 export const barbeiroService = new BarbeiroService()
 export const servicoService = new ServicoService()
 export const horarioService = new HorarioService()
 export const agendamentoService = new AgendamentoService()
-<<<<<<< HEAD
 export const caixaService = new CaixaService()
-=======
->>>>>>> 117a9383498c03862cd4c5feb5e7eddf85e333fd

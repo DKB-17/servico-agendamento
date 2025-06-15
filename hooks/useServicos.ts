@@ -77,7 +77,7 @@ export function useServicos() {
   }
 
   // Filtrar apenas serviços ativos
-  const servicosAtivos = servicos.filter((servico) => servico.ativo)
+  const servicosAtivos = servicos.filter((servico) => servico.deletedAt)
 
   useEffect(() => {
     carregarServicos()

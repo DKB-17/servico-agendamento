@@ -62,7 +62,7 @@ export function AgendamentosDia() {
             <PopoverTrigger asChild>
               <Button
                 variant="outline"
-                className="border-slate-600 text-white hover:bg-slate-700 flex items-center gap-2"
+                className="border-slate-600 text-black hover:bg-slate-700 flex items-center gap-2"
               >
                 <CalendarIcon className="h-4 w-4" />
                 {format(selectedDate, "dd/MM/yyyy", { locale: ptBR })}

@@ -1,8 +1,7 @@
 import Link from "next/link"
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Users, Clock, Scissors, Calendar, DollarSign, ArrowLeft } from "lucide-react"
-
+import { Users, Clock, Scissors, Calendar, DollarSign, ArrowLeft, Database } from "lucide-react"
 export default function AdminPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
@@ -71,6 +70,19 @@ export default function AdminPage() {
               </CardHeader>
             </Card>
           </Link>
+
+          <Link href="/admin/seeder">
+            <Card className="bg-slate-800 border-slate-700 hover:bg-slate-750 transition-colors cursor-pointer">
+              <CardHeader>
+                <Database className="h-12 w-12 text-amber-500 mb-4" />
+                <CardTitle className="text-white">Seeder de Dados</CardTitle>
+                <CardDescription className="text-slate-300">
+                  Popule o banco de dados com dados de exemplo
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
+
         </div>
       </div>
     </div>
