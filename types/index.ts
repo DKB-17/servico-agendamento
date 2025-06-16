@@ -137,3 +137,49 @@ export interface ServicoMaisVendido {
 export interface TicketMedio {
   valor: number
 }
+
+export interface Usuario {
+  id: number
+  nome: string
+  contato: string
+}
+
+export interface ClienteResponse {
+  id: number
+  imagem: string | null
+  usuario: Usuario
+  createdAt: string
+  updatedAt: string
+}
+
+export interface Curtida {
+  id: number
+  cliente_id: number
+  post_id: number | null
+  comentario_id: number | null
+}
+
+export interface RegistroCliente {
+  id: number
+  imagem: string | null
+  usuario: Usuario
+  createdAt: string
+  updatedAt: string
+}
+
+export interface RegistroPost {
+  id: number
+  cliente: RegistroCliente
+  legenda: string
+  avaliacao: number
+  qtd_curtidas: number
+  curtidas: Curtida[]
+  createdAt: string
+  updatedAt: string
+}
+
+export interface CadastroPost {
+  cliente_id: number
+  legenda: string
+  avaliacao: number
+}

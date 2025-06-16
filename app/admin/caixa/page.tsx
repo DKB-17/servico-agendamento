@@ -262,7 +262,7 @@ export default function CaixaPage() {
                 <TrendingUp className="h-4 w-4 text-amber-500" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-white">{typeof caixaData.servicoMaisVendido === 'string'?caixaData.servicoMaisVendido:caixaData.servicoMaisVendido.descricaoDoServico}</div>
+                <div className="text-2xl font-bold text-white">{typeof caixaData.servicoMaisVendido === 'string'?caixaData.servicoMaisVendido:""}</div>
               </CardContent>
             </Card>
           </div>

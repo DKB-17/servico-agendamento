@@ -50,7 +50,7 @@ export default function HomePage() {
               <Link href="/agendamento" className="hover:text-amber-500 transition-colors">
                 AGENDAR
               </Link>
-              <Link href="/avaliacao" className="hover:text-amber-500 transition-colors">
+              <Link href="/avaliacoes" className="hover:text-amber-500 transition-colors">
                 AVALIAÇÕES
               </Link>
             </nav>
@@ -60,6 +60,11 @@ export default function HomePage() {
               <Phone className="h-4 w-4 mr-2 text-amber-500" />
               <span>(18) 99803-4635</span>
             </div>
+              <Link href="/cliente">
+              <Button variant="outline" className="border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-black">
+                Minha Conta
+              </Button>
+            </Link>
             <Link href="/admin">
               <Button variant="outline" className="border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-black">
                 Área Administrativa
