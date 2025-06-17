@@ -167,6 +167,20 @@ export interface RegistroCliente {
   updatedAt: string
 }
 
+export interface RegistroComentario {
+  id: number;
+  texto: string;
+  qtd_curtida: number;
+  clienteId: number;
+  postId: number;
+  comentarioId: number;
+  createdAt: string;
+}
+
+export interface ComentarioForm {
+  texto: string;
+}
+
 export interface RegistroPost {
   id: number
   cliente: RegistroCliente

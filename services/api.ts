@@ -1,17 +1,20 @@
 import { API_CONFIG, DEFAULT_HEADERS } from "@/config/api"
 import type {
-   Barbeiro, 
-   Servico, 
-   Horario, 
-   Agendamento, 
-   BarbeiroCreateRequest, 
-   BarbeiroUpdateRequest,
-   AgendamentosDiaResponse, 
-   AgendamentoResponse,
-   ServicoForm,
-  } from "@/types"
+  Barbeiro,
+  Servico,
+  Horario,
+  Agendamento,
+  BarbeiroCreateRequest,
+  BarbeiroUpdateRequest,
+  AgendamentosDiaResponse,
+  AgendamentoResponse,
+  ServicoForm, RegistroPost,
+  ComentarioForm,
+  RegistroComentario,
+} from "@/types"
 
 import { format } from "date-fns"
+import { METHODS } from "http"
 
 // Classe base para serviços da API
 class BaseApiService {
@@ -103,6 +106,14 @@ export class ServicoService extends BaseApiService {
       method: "PUT",
     })
   }
+}
+
+export class ComentarioService extends BaseApiService {
+
+  public async listarComentariosComBaseEmPost(post: RegistroPost) {
+    return this.request<Array<RegistroComentario>>(`${API_CONFIG.ENDPOINTS.POSTS}/${post.id}/comentarios`);
+  }
+
 }
 
 // Serviço para gerenciar horários

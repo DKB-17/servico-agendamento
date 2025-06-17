@@ -15,6 +15,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { StarRating } from "@/components/StarRating"
 import { ThumbsUp } from "lucide-react"
+import { Comentarios } from "./Comentarios/Comentarios"
 
 export default function AvaliacoesPage() {
   const [posts, setPosts] = useState<RegistroPost[]>([])
@@ -229,6 +230,7 @@ export default function AvaliacoesPage() {
                   <p className="text-gray-300 mb-4">{post.legenda}</p>
                   <div className="flex items-center justify-between text-sm text-gray-400">
                     <span>{new Date(post.createdAt).toLocaleDateString()}</span>
+                    <Comentarios post={post} />
                     <Button
                       variant="ghost"
                       size="sm"

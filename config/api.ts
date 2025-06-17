@@ -1,6 +1,7 @@
 export const API_CONFIG = {
   BASE_URL: "http://localhost:8080",
   ENDPOINTS: {
+    POSTS: "/post",
     BARBEIROS: "/barbeiros",
     SERVICOS: "/servicos",
     HORARIOS: "/horarios",

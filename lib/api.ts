@@ -1,4 +1,4 @@
-import { CadastroPost, ClienteResponse, RegistroPost } from "@/types"
+import { CadastroPost, ClienteResponse, RegistroComentario, RegistroPost } from "@/types"
 
 const API_BASE_URL = "http://localhost:8080"
 
@@ -134,6 +134,23 @@ export const api = {
         })
       
       return response
+    },
+    
+    createComentario: async (data : { texto:string; cliente_id:number | undefined; post_id:number|null; comentario_id:number|null }) => {
+      const response = await 
+        fetch(`${API_BASE_URL}/post/comentario`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        })
+      
+      return response
+    },
+
+    getAllComentarioToPost: async (post: RegistroPost): Promise<RegistroComentario[]>  => {
+      const response = await 
+        fetch(`${API_BASE_URL}/post/${post.id}/comentarios`) 
+      return response.json()
     },
   },
 
